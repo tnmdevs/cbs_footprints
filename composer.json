@@ -34,5 +34,12 @@
       "@php ./vendor/bin/testbench package:discover --ansi"
     ],
     "test": "vendor/bin/phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "TNM\\CBSFootprints\\Providers\\CBSFootprintsServiceProvider"
+      ]
+    }
   }
 }
