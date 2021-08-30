@@ -1,0 +1,34 @@
+{
+    "name": "tnmdev/cbs-footprints",
+    "description": "Transaction logs for CBS requests",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TNM\\CBSFootprints\\": "src/",
+            "TNM\\CBSFootprints\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TNM Developers",
+            "email": "developers@tnm.co.mw"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework": "^7.0",
+      "ext-json": "*"
+    },
+    "require-dev": {
+        "tnmdev/cbs": "^1.0",
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ],
+        "test": "vendor/bin/phpunit"
+    }
+}
