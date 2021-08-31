@@ -26,4 +26,21 @@ class CBSRequestTest extends TestCase
             'request_body' => 'anything'
         ]);
     }
+
+    public function test_log_cbs_requests_without_msisdn()
+    {
+        Event::dispatch(new CbsRequestEvent([
+            'payload' => [
+                'trans_id' => trans_id()
+            ],
+            'body' => 'anything'
+        ], CustomerInfoService::class));
+
+        $this->assertDatabaseCount('cbs_footprints', 1);
+        $this->assertDatabaseHas('cbs_footprints', [
+            'service' => CustomerInfoService::class,
+            'msisdn'=>null,
+            'request_body' => 'anything'
+        ]);
+    }
 }
