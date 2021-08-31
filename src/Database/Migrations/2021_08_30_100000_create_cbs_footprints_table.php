@@ -15,7 +15,7 @@ class CreateCBSFootprintsTable extends Migration
     {
         Schema::create('cbs_footprints', function (Blueprint $table) {
             $table->id();
-            $table->string('msisdn')->index();
+            $table->string('msisdn')->index()->nullable();
             $table->string('service');
             $table->string('trans_id')->index();
             $table->json('request');

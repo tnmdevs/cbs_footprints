@@ -16,7 +16,7 @@ class CBSFootprint extends Model
     public static function logRequest(CbsRequestEvent $event): self
     {
         return self::create([
-            'msisdn' => $event->attributes['payload']['msisdn'],
+            'msisdn' => $event->attributes['payload']['msisdn']??null,
             'service' => $event->service,
             'trans_id' => $event->attributes['payload']['trans_id'],
             'request' => json_encode($event->attributes['payload']),
